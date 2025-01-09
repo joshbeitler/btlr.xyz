@@ -1,16 +1,17 @@
 import { getPosts } from "@/lib/get-posts";
+import { PageTitle } from "@/components/page-title";
 
 const Thoughts = () => {
   const posts = getPosts();
 
   return (
     <>
-      <h1 className="text-2xl font-normal mb-12">Thoughts</h1>
+      <PageTitle>Thoughts</PageTitle>
 
       <div className="space-y-6">
         {posts.map((post) => (
           <div key={post.slug} className="flex space-x-4">
-            <span className="text-gray-400 w-20 tabular-nums">
+            <span className="text-gray-400 w-24 tabular-nums">
               {post.year} • {post.month}
             </span>
             <div className="flex flex-col">

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const Nav = () => (
-  <nav className="flex items-center space-x-2 text-gray-500 text-sm mb-12">
+  <nav className="flex items-center space-x-2 text-gray-500 text-sm mb-16">
     <span>@beitler</span>
     <span>/</span>
     <Link href="/about">About</Link>
