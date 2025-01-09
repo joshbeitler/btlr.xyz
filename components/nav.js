@@ -8,14 +8,14 @@ export const Nav = () => (
     <span>/</span>
     <Link href="/thoughts">Thoughts</Link>
     <span>/</span>
-    <span>Bookshelf</span>
+    <Link href="/bookshelf">Bookshelf</Link>
     <span>/</span>
-    <span>Music</span>
+    <Link href="/music">Music</Link>
     <span>/</span>
-    <span>Photos</span>
+    <Link href="/photos">Photos</Link>
     <span>/</span>
-    <span>Projects</span>
+    <Link href="/projects">Projects</Link>
     <span>/</span>
-    <span>Now</span>
+    <Link href="/now">Now</Link>
   </nav>
 );
