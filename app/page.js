@@ -1,101 +1,119 @@
-import Image from "next/image";
+const posts = [
+  {
+    year: "2024",
+    month: "02",
+    title: "Async over-communication",
+    subtitle: "Thoughts on remote work communication patterns",
+  },
+  {
+    year: "2024",
+    month: "01",
+    title: "At the park",
+    subtitle: "Finding peace in urban spaces",
+  },
+  {
+    year: "2024",
+    month: "01",
+    title: "Done overthinking hair",
+    subtitle: "A meditation on personal care",
+  },
+  {
+    year: "2024",
+    month: "01",
+    title: "Reboot",
+    subtitle: "Starting fresh in the new year",
+  },
+  {
+    year: "2023",
+    month: "12",
+    title: "2023",
+    subtitle: "Year in review",
+  },
+  {
+    year: "2023",
+    month: "08",
+    title: "On digital gardening",
+    subtitle: "Growing ideas in the digital age",
+  },
+  {
+    year: "2023",
+    month: "06",
+    title: "Quantum, Zen, and other things",
+    subtitle: "Exploring connections between science and philosophy",
+  },
+  {
+    year: "2023",
+    month: "04",
+    title: "My hands",
+    subtitle: "On craft and making",
+  },
+  {
+    year: "2022",
+    month: "11",
+    title: "Tools, autonomy, contemplation",
+    subtitle: "The instruments of thought and creation",
+  },
+  {
+    year: "2022",
+    month: "11",
+    title: "I bought a watch",
+    subtitle: "Reflections on time and objects",
+  },
+  {
+    year: "2021",
+    month: "09",
+    title: "Digital peasantry",
+    subtitle: "Modern tools for ancient practices",
+  },
+  {
+    year: "2021",
+    month: "07",
+    title: "Unlearning",
+    subtitle: "The art of letting go",
+  },
+  {
+    year: "2020",
+    month: "05",
+    title: "The socratic squat",
+    subtitle: "Philosophy and physical practice",
+  },
+  {
+    year: "2019",
+    month: "12",
+    title: "Not writing about it",
+    subtitle: "On silence and presence",
+  },
+  {
+    year: "2017",
+    month: "05",
+    title: "Yanaka",
+    subtitle: "Walking through Tokyo's old town",
+  },
+];
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+const Home = () => (
+  <>
+    <h1 className="text-2xl font-normal mb-12">Thoughts</h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="space-y-6">
+      {posts.map((post, index) => (
+        <div key={index} className="flex space-x-4">
+          <span className="text-gray-400 w-20 tabular-nums">
+            {post.year} • {post.month}
+          </span>
+          <div className="flex flex-col">
+            <a
+              href={`#${post.title.toLowerCase().replace(/\s+/g, "-")}`}
+              className="text-black hover:text-gray-600 transition-colors underline"
+            >
+              {post.title}
+            </a>
+            <span className="text-gray-500 mt-0.5">{post.subtitle}</span>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      ))}
     </div>
-  );
-}
+  </>
+);
+
+export default Home;
