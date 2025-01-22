@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         <div className="min-h-screen bg-white text-black">
           <div className="max-w-2xl mx-auto px-6 py-8">
             <Nav />
-            {children}
+            <div className="prose">{children}</div>
           </div>
         </div>
       </body>

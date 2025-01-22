@@ -12,7 +12,7 @@ export default async function Page({ params }) {
   // const { default: Post } = await import(`@/posts/${slug}.mdx`);
 
   return (
-    <article className="prose">
+    <article>
       <MDXRemote source={content} />
     </article>
   );
