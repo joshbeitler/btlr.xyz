@@ -25,10 +25,8 @@ const Home = () => {
           , the largest and oldest hackathon in the Southern Utah region.
         </p>
         <p className="text-slate-400 text-xl">
-          I am currently looking for my next opportunity to build something
-          amazing with a team of talented individuals. <a href="#">Reach out</a>{" "}
-          to me anytime or get a copy of my <a href="#">resume</a> to take a
-          peek at my work.
+          I&apos;m  now looking for my next opportunity to build something
+          amazing with a team of talented individuals. Please <a href="#">Reach out</a> if that sounds interesting.
         </p>
         </div>
       <div className="flex flex-1">asdf</div>

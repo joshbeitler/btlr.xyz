@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={spaceGrotesk.className}>
       <body className={`antialiased`}>
         <div className="min-h-screen bg-white text-black w-full">
-          <div className="mx-auto px-40 py-4 w-full">
+          <div className="mx-auto px-52 py-4 w-full">
             <Nav />
             <div className="prose max-w-full">{children}</div>
           </div>
