@@ -1,3 +1,3 @@
 export const PageTitle = ({ children }) => {
-  return <h1 className="text-2xl font-semibold mb-16">{children}</h1>;
+  return <h1 className="uppercase text-2xl">{children}</h1>;
 };

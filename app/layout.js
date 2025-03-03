@@ -1,9 +1,9 @@
-import { Instrument_Serif } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/nav";
 
-const instrumentSerif = Instrument_Serif({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: "400",
   display: "swap",
@@ -22,12 +22,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={spaceGrotesk.className}>
       <body className={`antialiased`}>
-        <div className="min-h-screen bg-white text-black">
-          <div className="max-w-2xl mx-auto px-6 py-8">
+        <div className="min-h-screen bg-white text-black w-full">
+          <div className="mx-auto px-40 py-4 w-full">
             <Nav />
-            <div className="prose">{children}</div>
+            <div className="prose max-w-full">{children}</div>
           </div>
         </div>
       </body>

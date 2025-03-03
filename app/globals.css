@@ -19,3 +19,37 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif; */
 }
+
+p {
+  margin-bottom: 15px !important;
+  margin-top: 15px !important;
+}
+
+@layer base {
+  ::selection {
+    @apply bg-slate-700 text-slate-100;
+  }
+
+  /* Reset all default link styling first */
+  a {
+    @apply relative text-slate-700 font-medium px-1 py-0.5;
+    text-decoration: none !important; /* Force remove default underlines */
+    transition: color 0.2s ease-in-out;
+    z-index: 1;
+  }
+  
+  a::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0 bg-slate-200;
+    transition: height 0.3s ease;
+    z-index: -1;
+  }
+  
+  a:hover {
+    @apply text-slate-900;
+  }
+  
+  a:hover::after {
+    @apply h-full;
+  }
+}
