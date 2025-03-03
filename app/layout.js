@@ -18,6 +18,7 @@ const inter = Inter({
 export const metadata = {
   title: "Joshua Beitler",
   description: "Personal website of Joshua Beitler, a product manager, designer, and engineer with a great love of building beautiful software.",
+  metadataBase: new URL('https://btlr.xyz'),
 };
 
 export default function RootLayout({ children }) {
