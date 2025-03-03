@@ -22,12 +22,12 @@ const Home = () => {
           month.
         </p>
         <p className="text-slate-400 text-xl">
-          For four years, I have also run <a href="#">CodeCamp</a>
+          For four years, I have also run <a href="https://www.stgeorgeutah.com/news/nearly-300-competitors-code-through-the-night-at-annual-st-george-event/article_35cd4894-a88b-11ef-863a-63fcf33d1a4a.html">CodeCamp</a>
           , the largest and oldest hackathon in the Southern Utah region.
         </p>
         <p className="text-slate-400 text-xl">
           I&apos;m  now looking for my next opportunity to build something
-          amazing with a team of talented individuals. Please <a href="#">Reach out</a> if that sounds interesting.
+          amazing with a team of talented individuals. Please <a href="mailto:hello+site@btlr.xyz">Reach out</a> if that sounds interesting.
         </p>
         </div>
       <div className="flex flex-1">
