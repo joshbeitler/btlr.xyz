@@ -8,16 +8,13 @@ const Thoughts = () => {
     <>
       <PageTitle>Thoughts</PageTitle>
 
-      <div className="space-y-2">
+      <div className="space-y-4 no-underline">
         {posts.map((post) => (
           <div key={post.slug} className="flex">
-            <div className="flex flex-row">
-              <a
-                href={`/blog/${post.slug}`}
-              >
-                {post.title} 
-                <span className="text-slate-300 mx-2">•</span>
-                <span className="text-slate-500 mt-0.5">{post.subtitle}</span>
+            <div className="flex flex-column">
+              <a href={`/blog/${post.slug}`}>
+                <div>{post.title}</div>
+                <div className="text-slate-500">{post.subtitle}</div>
               </a>
             </div>
           </div>
