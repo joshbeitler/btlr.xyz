@@ -3,47 +3,51 @@
 @tailwind utilities;
 
 p {
-  margin-bottom: 10px !important;
-  margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    margin-top: 10px !important;
 }
 
 @layer base {
-  ::selection {
-    @apply bg-slate-700 text-slate-100;
-  }
+    ::selection {
+        @apply bg-slate-700 text-slate-100;
+    }
 
-  /* Reset all default link styling first */
-  a {
-    @apply relative text-slate-700 font-medium px-1 py-0.5;
-    text-decoration: none !important; /* Force remove default underlines */
-    transition: color 0.2s ease-in-out;
-    z-index: 1;
-  }
-  
-  a::after {
-    content: '';
-    @apply absolute bottom-0 left-0 w-full h-0 bg-slate-200;
-    transition: height 0.3s ease;
-    z-index: -1;
-  }
-  
-  a:hover {
-    @apply text-slate-900;
-  }
-  
-  a:hover::after {
-    @apply h-full;
-  }
+    /* Reset all default link styling first */
+    a {
+        @apply relative text-slate-700 font-medium px-0 py-0.5 border-b-2 border-dotted border-slate-300;
+        text-decoration: none !important; /* Force remove default underlines */
+        transition: color 0.2s ease-in-out;
+        z-index: 1;
+    }
 
-  h1 {
-    @apply uppercase !text-2xl;
-  }
- 
-  h2 {
-    @apply !text-slate-700 uppercase !text-lg;
-  }
-  
-  h3 {
-    @apply !text-slate-500 uppercase !text-sm;
-  }
+    .no-underline a {
+        @apply border-0;
+    }
+
+    a::after {
+        content: "";
+        @apply absolute bottom-0 left-0 w-full h-0 bg-slate-200;
+        transition: height 0.3s ease;
+        z-index: -1;
+    }
+
+    a:hover {
+        @apply text-slate-900;
+    }
+
+    a:hover::after {
+        @apply h-full;
+    }
+
+    h1 {
+        @apply uppercase !text-2xl;
+    }
+
+    h2 {
+        @apply !text-slate-700 uppercase !text-lg;
+    }
+
+    h3 {
+        @apply !text-slate-500 uppercase !text-sm;
+    }
 }
