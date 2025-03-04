@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${spaceGrotesk.className} bg-slate-50`}>
       <body className="antialiased">
         <div className="bg-slate-50 text-slate-800 w-full">
-          <div className="mx-auto px-52 py-4 w-full">
+          <div className="mx-auto py-4 w-full max-w-[600px]">
             <Nav />
             <div className="prose max-w-full">{children}</div>
           </div>

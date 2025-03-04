@@ -3,7 +3,8 @@ import { PageTitle } from "@/components/page-title";
 
 const Home = () => {
   return (
-    <div className="flex w-full flex-row gap-48">
+    // <div className="flex w-full flex-row gap-48 -mx-[476px]">
+    <div className="relative w-[1076px] -left-[calc((1076px-100%)/2)] flex flex-row gap-48">
       <div className="flex-col flex flex-1">
         <PageTitle>Joshua Beitler</PageTitle>
         <p className="text-slate-500 text-xl">
