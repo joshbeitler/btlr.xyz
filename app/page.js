@@ -55,14 +55,30 @@ const Home = () => {
           interesting.
         </p>
       </div>
-      <div className="flex flex-1">
+      <div className="flex flex-1 relative group">
+        <Image
+          className="grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 absolute z-10 -top-10 -left-10 -rotate-3 group-hover:scale-105 transition-all ease-in-out duration-300"
+          src="/passport-circle.svg"
+          width={150}
+          height={150}
+          alt="Fun passport stamp for decorative effect"
+        />
+
         <Image
           src="/me.jpeg"
           alt="Joshua Beitler"
           width={300}
           height={300}
-          className="rounded-2xl rotate-2 shadow-md transition-all duration-300 ease-in-out hover:rotate-[3deg] hover:shadow-xl"
+          className="group-hover:scale-[101%] group-hover:z-20 rounded-2xl rotate-2 shadow-md transition-all duration-300 ease-in-out group-hover:rotate-[3deg] group-hover:shadow-xl"
           style={{ width: "auto", height: "auto", objectFit: "contain" }}
+        />
+
+        <Image
+          className="grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 absolute z-10 -bottom-8 right-10 -rotate-3 group-hover:scale-105 transition-all ease-in-out duration-300"
+          src="/passport-rect.svg"
+          width={150}
+          height={150}
+          alt="Fun passport stamp for decorative effect"
         />
       </div>
     </div>
