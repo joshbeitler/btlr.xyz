@@ -6,13 +6,13 @@ export const Nav = () => (
     <span>/</span>
     {/* <Link href="/thoughts">Thoughts</Link>
     <span>/</span> */}
-    <Link href="/bookshelf">Bookshelf</Link>
+    {/* <Link href="/bookshelf">Bookshelf</Link> */}
     {/* <span>/</span>
     <Link href="/music">Music</Link>
     <span>/</span>
     <Link href="/photos">Photos</Link>
  */}
-    <span>/</span>
+    {/* <span>/</span> */}
     <Link href="/now">Now</Link>
     <span>/</span>
     <a
