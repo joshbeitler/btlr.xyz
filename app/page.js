@@ -1,8 +1,59 @@
+"use client";
+
 import Image from "next/image";
 import { PageTitle } from "@/components/page-title";
 import { QuoteOfTheDay } from "@/components/quote-of-the-day";
+import { useState, useEffect, useCallback } from "react";
 
 const Home = () => {
+  const [clickCount, setClickCount] = useState(0);
+  const [coolMode, setCoolMode] = useState(false);
+
+  const handleCardClick = () => {
+    if (!coolMode) {
+      setClickCount((prev) => prev + 1);
+    }
+  };
+
+  const enableCoolMode = useCallback(() => {
+    if (!coolMode) {
+      setCoolMode(true);
+      document.documentElement.classList.add("cool-mode");
+    }
+  }, [coolMode]);
+
+  useEffect(() => {
+    if (clickCount === 3) {
+      const polaroidContainer = document.getElementById("polaroid-container");
+
+      if (polaroidContainer) {
+        // Get the current rotation (2deg by default, 3deg on hover)
+        const isHovered = polaroidContainer.classList.contains(
+          "group-hover:rotate-[3deg]",
+        );
+        const currentRotation = isHovered ? 3 : 2;
+
+        // Apply flip while preserving Z rotation
+        polaroidContainer.style.transform = `rotate(${currentRotation}deg) rotateY(180deg)`;
+
+        // Enable cool mode after a small delay (one-way transition)
+        setTimeout(() => {
+          enableCoolMode();
+        }, 500);
+
+        // Reset after animation completes
+        const timer = setTimeout(() => {
+          polaroidContainer.style.transform = "";
+          setClickCount(0);
+        }, 800);
+
+        return () => {
+          clearTimeout(timer);
+        };
+      }
+    }
+  }, [clickCount, enableCoolMode]);
+
   return (
     <div className="relative w-full md:w-[1076px] md:-left-[calc((1076px-100%)/2)] flex flex-col md:flex-row md:gap-48 gap-12 no-underline">
       <div className="flex-col flex flex-1">
@@ -65,17 +116,46 @@ const Home = () => {
           alt="Fun passport stamp for decorative effect"
         />
 
-        <div className="text-center border-5 bg-white p-5 border-solid border-white group-hover:scale-[101%] rotate-2 shadow-md transition-all duration-300 ease-in-out group-hover:rotate-[3deg] group-hover:shadow-xl h-fit">
-          <Image
-            src="/me.jpeg"
-            alt="Joshua Beitler"
-            width={300}
-            height={300}
-            className="shadow-inner m-0 mb-3"
-            style={{ width: "auto", height: "auto", objectFit: "contain" }}
-          />
-          <div className="polaroid z-50 absolute left-0 top-0 w-full h-full opacity-30 group-hover:opacity-10 transition-all ease-in-out duration-300"></div>
-          <QuoteOfTheDay />
+        {/* Perspective container */}
+        <div style={{ perspective: "1000px" }} className="h-fit">
+          {/* The entire polaroid that will flip */}
+          <div
+            id="polaroid-container"
+            className="text-center border-5 bg-white p-5 border-solid border-white group-hover:scale-[101%] rotate-2 shadow-md transition-all duration-500 ease-in-out group-hover:rotate-[3deg] group-hover:shadow-xl cursor-pointer"
+            style={{
+              transformStyle: "preserve-3d",
+              position: "relative",
+              transformOrigin: "center center",
+            }}
+            onClick={handleCardClick}
+          >
+            {/* Front of polaroid */}
+            <div style={{ backfaceVisibility: "hidden" }}>
+              <Image
+                src="/me.jpeg"
+                alt="Joshua Beitler"
+                width={300}
+                height={300}
+                className="shadow-inner m-0 mb-3"
+                style={{ width: "auto", height: "auto", objectFit: "contain" }}
+              />
+              <div className="polaroid z-50 absolute left-0 top-0 w-full h-full opacity-30 group-hover:opacity-10 transition-all ease-in-out duration-300"></div>
+              <QuoteOfTheDay />
+            </div>
+
+            {/* Back of polaroid */}
+            <div
+              className="polaroid polaroid-semi absolute top-0 left-0 w-full h-full flex items-center justify-center bg-white p-5 border-5 border-solid border-white"
+              style={{
+                backfaceVisibility: "hidden",
+                transform: "rotateY(180deg)",
+              }}
+            >
+              <div className="text-center">
+                <h3 className="text-xl font-bold mb-2">Cool mode activated</h3>
+              </div>
+            </div>
+          </div>
         </div>
 
         <Image
