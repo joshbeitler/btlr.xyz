@@ -28,8 +28,8 @@ const Home = () => {
           >
             CodeCamp
           </a>
-          , the largest and oldest hackathon in the Southern Utah region - now
-          on its 16th year.
+          , the largest CS outreach organization in Southern Utah, where we
+          organize a 24 hour hackathon every year, now in its 16th year.
         </p>
         <p className="text-slate-500 text-xl">
           For fun, I love taking{" "}
@@ -79,7 +79,7 @@ const Home = () => {
         </div>
 
         <Image
-          className="stamp grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 absolute z-10 bottom-[40px] right-[60px] rotate-6 group-hover:scale-105 transition-all ease-in-out duration-300 hidden md:block"
+          className="stamp grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 absolute z-10 bottom-[55px] right-[40px] rotate-6 group-hover:scale-105 transition-all ease-in-out duration-300 hidden md:block"
           src="/passport-rect.svg"
           width={150}
           height={150}
