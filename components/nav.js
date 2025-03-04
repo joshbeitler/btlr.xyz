@@ -14,5 +14,13 @@ export const Nav = () => (
  */}
     <span>/</span>
     <Link href="/now">Now</Link>
+    <span>/</span>
+    <a href="https://twitter.com/joshbeitler" target="_blank" title="Follow me on X (formerly known as Twitter)">X</a>
+    <span>/</span>
+    <a href="https://linkedin.com/in/joshbeitler" target="_blank" title="Find me on LinkedIn">LI</a>
+    <span>/</span>
+    <a href="https://github.com/joshbeitler" target="_blank" title="Find me on GitHub">GH</a>
+    <span>/</span>
+    <a href="https://instagram.com/joshbeitler" target="_blank" title="Find me on Instagram">IG</a>
   </nav>
 );
