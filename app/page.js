@@ -26,6 +26,13 @@ const quotes = [
   "stream 'Decadent' by Phobos",
   "100% pure, homegrown CSS. And Tailwind.",
   "No preservatives or GMOs",
+  "you had to be there",
+  "rizzard of oz",
+  "chatgpt stole my wife",
+  "this quote is brought to you by Brawndo",
+  "think different",
+  "do not fear, fear is the mind killer",
+  "where we're going, we don't need roads",
 ];
 
 const Home = () => {
