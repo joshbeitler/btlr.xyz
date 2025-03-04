@@ -33,6 +33,8 @@ const quotes = [
   "think different",
   "do not fear, fear is the mind killer",
   "where we're going, we don't need roads",
+  "now in 3D",
+  "i'm going on an adventure!",
 ];
 
 const Home = () => {
