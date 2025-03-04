@@ -12,22 +12,19 @@ const Home = () => {
         </p>
         <p className="text-slate-400 text-xl">
           For the past 9 years, I worked at{" "}
-          <a href="https://zonos.com">Zonos</a>, the world&apos;s leader in
-          cross-border ecommerce APIs and shopper experiences.
+          <a href="https://zonos.com" target="_blank">Zonos</a>, the world leader in
+          cross-border ecommerce APIs and shopper experiences, building a number of products and experiences that power millions of shipments globally per month.
         </p>
         <p className="text-slate-400 text-xl">
-          There, I built and shipped a number of products, including the
-          company&apos;s flagship product, Zonos Checkout, a cross-border
-          ecommerce checkout that powers hundreds of thousands of shipments per
-          month.
+          I also run <a href="https://www.stgeorgeutah.com/news/nearly-300-competitors-code-through-the-night-at-annual-st-george-event/article_35cd4894-a88b-11ef-863a-63fcf33d1a4a.html" target="_blank">CodeCamp</a>
+          , the largest and oldest hackathon in the Southern Utah region - now on its 16th year.
         </p>
         <p className="text-slate-400 text-xl">
-          For four years, I have also run <a href="https://www.stgeorgeutah.com/news/nearly-300-competitors-code-through-the-night-at-annual-st-george-event/article_35cd4894-a88b-11ef-863a-63fcf33d1a4a.html">CodeCamp</a>
-          , the largest and oldest hackathon in the Southern Utah region.
+          For fun, I love taking <a href="https://instagram.com/joshbeitler" target="_blank">photos</a>, making <a href="https://music.apple.com/us/artist/phobos/1337460836" target="_blank">music</a>, and enjoying my <a href="https://www.discogs.com/user/beitler" target="_blank">record</a> collection.
         </p>
         <p className="text-slate-400 text-xl">
           I&apos;m  now looking for my next opportunity to build something
-          amazing with a team of talented individuals. Please <a href="mailto:hello+site@btlr.xyz">Reach out</a> if that sounds interesting.
+          amazing with a team of talented individuals. Please <a href="mailto:hello+site@btlr.xyz">reach out</a> if that sounds interesting.
         </p>
         </div>
       <div className="flex flex-1">
