@@ -12,7 +12,7 @@ export const Nav = () => (
     <span>/</span>
     <Link href="/photos">Photos</Link>
  */}
-    <span>/</span>
-    <Link href="/now">Now</Link>
+    {/* <span>/</span>
+    <Link href="/now">Now</Link> */}
   </nav>
 );
