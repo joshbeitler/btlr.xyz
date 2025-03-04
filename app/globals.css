@@ -32,7 +32,7 @@ p {
     }
 
     a:hover {
-        @apply text-slate-900 text-blue-500;
+        @apply text-blue-500;
     }
 
     a:hover::after {
@@ -50,4 +50,10 @@ p {
     h3 {
         @apply !text-slate-500 uppercase !text-sm;
     }
+}
+
+.stamp {
+    -webkit-mask-image: url("/grunge-texture.png");
+    -webkit-mask-size: 944px 604px;
+    mix-blend-mode: multiply;
 }
