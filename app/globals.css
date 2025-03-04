@@ -23,6 +23,24 @@ p {
 }
 
 @layer base {
+    .prose,
+    .prose h1,
+    .prose h2,
+    .prose h3 {
+        @apply text-neutral-900 dark:text-white;
+    }
+
+    .prose h1 {
+        @apply text-neutral-900 dark:text-white !text-2xl uppercase;
+    }
+
+    .prose h2 {
+        @apply text-neutral-500 uppercase !text-lg dark:text-white;
+    }
+    .prose h3 {
+        @apply text-neutral-500 uppercase !text-sm dark:text-white;
+    }
+
     ::selection {
         @apply bg-neutral-700 text-neutral-100;
     }
@@ -59,11 +77,11 @@ p {
     }
 
     h2 {
-        @apply !text-neutral-700 uppercase !text-lg;
+        @apply text-neutral-500 uppercase !text-lg;
     }
 
     h3 {
-        @apply !text-neutral-500 uppercase !text-sm;
+        @apply text-neutral-400 uppercase !text-sm;
     }
 }
 
