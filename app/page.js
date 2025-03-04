@@ -145,7 +145,7 @@ const Home = () => {
 
             {/* Back of polaroid */}
             <div
-              className="polaroid polaroid-semi absolute top-0 left-0 w-full h-full flex items-center justify-center bg-white p-5 border-5 border-solid border-white dark:border-neutral-950 dark:bg-neutral-950"
+              className="transition-all ease-in-out duration-300 polaroid polaroid-semi absolute top-0 left-0 w-full h-full flex items-center justify-center bg-white p-5 border-5 border-solid border-white dark:border-neutral-950 dark:bg-neutral-950"
               style={{
                 backfaceVisibility: "hidden",
                 transform: "rotateY(180deg)",
