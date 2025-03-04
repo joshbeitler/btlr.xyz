@@ -8,20 +8,17 @@ const Thoughts = () => {
     <>
       <PageTitle>Thoughts</PageTitle>
 
-      <div className="space-y-6">
+      <div className="space-y-2">
         {posts.map((post) => (
-          <div key={post.slug} className="flex space-x-4">
-            <span className="text-gray-400 w-24 tabular-nums">
-              {post.year} • {post.month}
-            </span>
-            <div className="flex flex-col">
+          <div key={post.slug} className="flex">
+            <div className="flex flex-row">
               <a
                 href={`/blog/${post.slug}`}
-                className="text-black hover:text-gray-600 transition-colors underline"
               >
-                {post.title}
+                {post.title} 
+                <span className="text-slate-300 mx-2">•</span>
+                <span className="text-slate-500 mt-0.5">{post.subtitle}</span>
               </a>
-              <span className="text-gray-500 mt-0.5">{post.subtitle}</span>
             </div>
           </div>
         ))}
