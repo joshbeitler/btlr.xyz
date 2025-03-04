@@ -57,3 +57,9 @@ p {
     -webkit-mask-size: 944px 604px;
     mix-blend-mode: multiply;
 }
+
+.polaroid {
+    background-image: url("/polaroid-texture.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
