@@ -30,7 +30,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${MaisonNeue.className} bg-slate-50`}>
+    <html lang="en" className={`bg-neutral-50 dark:bg-neutral-950 ${MaisonNeue.className}`}>
       <head>
         {/* /**
          * @license
@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
          */}
       </head>
       <body className="antialiased">
-        <div className="bg-slate-50 text-slate-800 w-full">
+        <div className="bg-neutral-50 text-neutral-800 dark:text-white dark:bg-neutral-950 dark:text-white w-full transition-all ease-in-out duration-200">
           <div className="mx-auto py-4 w-full px-4 md:px-0 max-w-[95%] md:max-w-[600px]">
             <Nav />
             <div className="prose max-w-full">{children}</div>

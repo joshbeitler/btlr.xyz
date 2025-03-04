@@ -14,7 +14,7 @@ const Thoughts = () => {
             <div className="flex flex-column">
               <a href={`/blog/${post.slug}`}>
                 <div>{post.title}</div>
-                <div className="text-slate-500 font-normal">
+                <div className="text-neutral-500 font-normal">
                   {post.subtitle}
                 </div>
               </a>

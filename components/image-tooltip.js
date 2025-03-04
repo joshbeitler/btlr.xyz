@@ -118,22 +118,22 @@ export const ImageTooltip = ({
             @keyframes tooltipFadeIn {
               from {
                 opacity: 0;
-                transform: scale(0.95) translateY(5px);
+                transform: scale(0.95) tranneutralY(5px);
               }
               to {
                 opacity: 1;
-                transform: scale(1) translateY(0);
+                transform: scale(1) tranneutralY(0);
               }
             }
 
             @keyframes tooltipFadeOut {
               from {
                 opacity: 1;
-                transform: scale(1) translateY(0);
+                transform: scale(1) tranneutralY(0);
               }
               to {
                 opacity: 0;
-                transform: scale(0.95) translateY(5px);
+                transform: scale(0.95) tranneutralY(5px);
               }
             }
           `}</style>
