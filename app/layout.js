@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
       <body className="antialiased">
         <div className="bg-slate-50 text-slate-800 w-full">
           {/* <div className="mx-auto px-52 py-4 w-full"> */}
-          <div className="mx-auto h-full w-1/2 py-4">
+          <div className="mx-auto h-full lg:w-1/2 md:w-3/4 py-4">
             <Nav />
             <div className="prose max-w-full">{children}</div>
           </div>
