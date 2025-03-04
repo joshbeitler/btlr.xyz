@@ -143,11 +143,11 @@ const Home = () => {
     <div className="flex w-full flex-row gap-16 md:gap-24 lg:gap-32 xl:gap-48">
       <div className="flex-col flex flex-1">
         <PageTitle>Joshua Beitler</PageTitle>
-        <p className="text-slate-400 text-xl">
+        <p className="text-slate-500 text-xl">
           Hi, I&apos;m a builder of beautiful software specializing in Product
           Management at ambitious startups.
         </p>
-        <p className="text-slate-400 text-xl">
+        <p className="text-slate-500 text-xl">
           For the past 9 years, I worked at{" "}
           <a 
             href="https://zonos.com" 
@@ -161,7 +161,7 @@ const Home = () => {
           </a>, the world leader in
           cross-border ecommerce APIs and shopper experiences, building a number of products and experiences that power millions of shipments globally per month.
         </p>
-        <p className="text-slate-400 text-xl">
+        <p className="text-slate-500 text-xl">
           I also run <a 
             href="https://www.stgeorgeutah.com/news/nearly-300-competitors-code-through-the-night-at-annual-st-george-event/article_35cd4894-a88b-11ef-863a-63fcf33d1a4a.html" 
             target="_blank"
@@ -173,7 +173,7 @@ const Home = () => {
             CodeCamp
           </a>, the largest and oldest hackathon in the Southern Utah region - now on its 16th year.
         </p>
-        <p className="text-slate-400 text-xl">
+        <p className="text-slate-500 text-xl">
           For fun, I love taking <a 
             href="https://instagram.com/joshbeitler" 
             target="_blank"
@@ -203,7 +203,7 @@ const Home = () => {
             record
           </a> collection.
         </p>
-        <p className="text-slate-400 text-xl">
+        <p className="text-slate-500 text-xl">
           I&apos;m  now looking for my next opportunity to build something
           amazing with a team of talented individuals. Please <a 
             href="mailto:hello+site@btlr.xyz"
