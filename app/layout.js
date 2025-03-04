@@ -1,6 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-// import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/nav";
 import localFont from "next/font/local";
@@ -50,7 +49,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="antialiased">
         <div className="bg-slate-50 text-slate-800 w-full">
-          <div className="mx-auto py-4 w-full max-w-[600px]">
+          <div className="mx-auto py-4 w-full px-4 md:px-0 max-w-[95%] md:max-w-[600px]">
             <Nav />
             <div className="prose max-w-full">{children}</div>
           </div>

@@ -4,7 +4,7 @@ import { QuoteOfTheDay } from "@/components/quote-of-the-day";
 
 const Home = () => {
   return (
-    <div className="no-underline relative w-[1076px] -left-[calc((1076px-100%)/2)] flex flex-row gap-48">
+    <div className="relative w-full md:w-[1076px] md:-left-[calc((1076px-100%)/2)] flex flex-col md:flex-row md:gap-48 gap-12 no-underline">
       <div className="flex-col flex flex-1">
         <PageTitle>Joshua Beitler</PageTitle>
         <p className="text-slate-500 text-xl">
@@ -56,9 +56,9 @@ const Home = () => {
           interesting.
         </p>
       </div>
-      <div className="flex flex-1 relative group mt-10">
+      <div className="flex flex-1 relative group mt-0 md:mt-10 mx-auto md:mx-0">
         <Image
-          className="stamp grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 absolute z-10 -top-16 -left-10 -rotate-3 group-hover:scale-105 transition-all ease-in-out duration-300"
+          className="stamp grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 absolute z-10 -top-16 -left-10 -rotate-3 group-hover:scale-105 transition-all ease-in-out duration-300 hidden md:block"
           src="/passport-circle.svg"
           width={150}
           height={150}
@@ -79,7 +79,7 @@ const Home = () => {
         </div>
 
         <Image
-          className="stamp grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 absolute z-10 bottom-[40px] right-[60px] rotate-6 group-hover:scale-105 transition-all ease-in-out duration-300"
+          className="stamp grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 absolute z-10 bottom-[40px] right-[60px] rotate-6 group-hover:scale-105 transition-all ease-in-out duration-300 hidden md:block"
           src="/passport-rect.svg"
           width={150}
           height={150}

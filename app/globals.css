@@ -78,3 +78,27 @@ p {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+/* Add this to your existing CSS */
+@layer utilities {
+    @media (max-width: 640px) {
+      /* Adjust list spacing for mobile */
+      ul {
+        padding-left: 1rem;
+      }
+      
+      /* Make headings smaller on mobile */
+      h1 {
+        @apply !text-xl;
+      }
+      
+      h2 {
+        @apply !text-base;
+      }
+      
+      /* Reduce font size for paragraphs on small screens */
+      p, li {
+        font-size: 1rem !important;
+      }
+    }
+  }
