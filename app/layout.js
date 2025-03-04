@@ -32,6 +32,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${MaisonNeue.className} bg-slate-50`}>
+      <head>
+        {/* /**
+         * @license
+         * MyFonts Webfont Build ID 296848
+         *
+         * The fonts listed in this notice are subject to the End User License
+         * Agreement(s) entered into by the website owner. All other parties are
+         * explicitly restricted from using the Licensed Webfonts(s).
+         *
+         * You may obtain a valid license from one of MyFonts official sites.
+         * http://www.fonts.com
+         * http://www.myfonts.com
+         * http://www.linotype.com
+         *
+         */}
+      </head>
       <body className="antialiased">
         <div className="bg-slate-50 text-slate-800 w-full">
           <div className="mx-auto py-4 w-full max-w-[600px]">
