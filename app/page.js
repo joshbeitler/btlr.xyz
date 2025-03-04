@@ -8,8 +8,8 @@ const Home = () => {
       <div className="flex-col flex flex-1">
         <PageTitle>Joshua Beitler</PageTitle>
         <p className="text-slate-500 text-xl">
-          Hi, I&apos;m a builder of beautiful software specializing in Product
-          Management at ambitious startups.
+          Hi, I&apos;m Josh, a builder of beautiful software specializing in
+          Product Management at ambitious startups.
         </p>
         <p className="text-slate-500 text-xl">
           For the past 9 years, I worked at{" "}
@@ -17,8 +17,8 @@ const Home = () => {
             Zonos
           </a>
           , the world leader in cross-border ecommerce APIs and shopper
-          experiences, building a number of products and experiences that power
-          millions of shipments globally per month.
+          experiences, building products and experiences that power millions of
+          shipments globally per month.
         </p>
         <p className="text-slate-500 text-xl">
           I also run{" "}
