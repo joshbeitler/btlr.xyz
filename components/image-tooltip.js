@@ -78,7 +78,7 @@ export const ImageTooltip = ({
       </a>
 
       {isHovering && (
-        <div
+        <span
           className="cursor-help fixed z-50 pointer-events-none"
           style={{
             left: `${tooltipPosition.left}px`,
@@ -93,7 +93,7 @@ export const ImageTooltip = ({
             fill={true}
             className="w-full h-full object-cover shadow-lg rounded-lg"
           />
-        </div>
+        </span>
       )}
     </>
   );
