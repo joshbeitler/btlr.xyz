@@ -14,9 +14,22 @@ const Home = () => {
   const [prevRotation, setPrevRotation] = useState(2);
   const [transitioning, setTransitioning] = useState(false);
   const [transitionDirection, setTransitionDirection] = useState(1); // 1 for clockwise, -1 for counter-clockwise
+  const [preloadedImages, setPreloadedImages] = useState(new Set([DEFAULT_IMAGE]));
   
   // Ref to store hover timer for delayed image change
   const hoverTimerRef = useRef(null);
+  
+  // Function to preload an image
+  const preloadImage = (imageUrl) => {
+    if (!preloadedImages.has(imageUrl)) {
+      // Use the browser's native Image constructor
+      const img = new window.Image();
+      img.src = imageUrl;
+      img.onload = () => {
+        setPreloadedImages(prev => new Set([...prev, imageUrl]));
+      };
+    }
+  };
   
   const getRandomRotation = () => {
     return Math.floor(Math.random() * 11) - 5; // Random rotation between -5 and 5 degrees
@@ -25,6 +38,9 @@ const Home = () => {
   const handleMouseEnter = (e) => {
     const imageUrl = e.currentTarget.getAttribute("data-image");
     if (imageUrl && imageUrl !== currentImage) {
+      // Immediately start preloading the image
+      preloadImage(imageUrl);
+      
       // Clear any existing hover timer
       if (hoverTimerRef.current) {
         clearTimeout(hoverTimerRef.current);
@@ -88,6 +104,17 @@ const Home = () => {
       }, 300);
     }
   };
+  
+  // Preload all possible images on component mount
+  useEffect(() => {
+    const allImageLinks = document.querySelectorAll('[data-image]');
+    allImageLinks.forEach(link => {
+      const imageUrl = link.getAttribute('data-image');
+      if (imageUrl) {
+        preloadImage(imageUrl);
+      }
+    });
+  }, []);
   
   const getTransitionStyle = (isEntering) => {
     if (transitioning) {
@@ -213,6 +240,7 @@ const Home = () => {
               style={{ 
                 objectFit: 'cover'
               }}
+              priority={true}
             />
           </div>
           
