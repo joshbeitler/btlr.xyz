@@ -69,7 +69,7 @@ const Home = () => {
           alt="Joshua Beitler"
           width={300}
           height={300}
-          className="group-hover:scale-[101%] group-hover:z-20 rounded-2xl rotate-2 shadow-md transition-all duration-300 ease-in-out group-hover:rotate-[3deg] group-hover:shadow-xl"
+          className="group-hover:scale-[101%] rounded-2xl rotate-2 shadow-md transition-all duration-300 ease-in-out group-hover:rotate-[3deg] group-hover:shadow-xl"
           style={{ width: "auto", height: "auto", objectFit: "contain" }}
         />
 
