@@ -1,7 +1,6 @@
 "use client";
-
 import Image from "next/image";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 export const ImageTooltip = ({
   children,
@@ -15,8 +14,31 @@ export const ImageTooltip = ({
   style = {},
 }) => {
   const [isHovering, setIsHovering] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isLeaving, setIsLeaving] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const linkRef = useRef(null);
+  const timeoutRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isHovering) {
+      setIsVisible(true);
+      setIsLeaving(false);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    } else {
+      setIsLeaving(true);
+      timeoutRef.current = setTimeout(() => {
+        setIsVisible(false);
+        setIsLeaving(false);
+      }, 200); // Match the animation duration
+    }
+  }, [isHovering]);
 
   const handleMouseEnter = () => {
     setIsHovering(true);
@@ -29,7 +51,6 @@ export const ImageTooltip = ({
   const handleMouseMove = (e) => {
     const x = e.clientX;
     const y = e.clientY;
-
     setPosition({ x, y });
   };
 
@@ -38,11 +59,9 @@ export const ImageTooltip = ({
   };
 
   const calculateTooltipPosition = () => {
-    if (!isHovering || !linkRef.current) return { left: 0, top: 0 };
-
+    if (!isVisible || !linkRef.current) return { left: 0, top: 0 };
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
-
     let left = position.x + offsetX;
     let top = position.y + offsetY;
 
@@ -76,15 +95,17 @@ export const ImageTooltip = ({
       >
         {children}
       </a>
-
-      {isHovering && (
+      {isVisible && (
         <span
-          className="cursor-help fixed z-50 pointer-events-none"
+          className="cursor-help fixed z-50 pointer-events-none origin-top-left"
           style={{
             left: `${tooltipPosition.left}px`,
             top: `${tooltipPosition.top}px`,
             width: `${imageWidth}px`,
             height: `${imageHeight}px`,
+            animation: isLeaving
+              ? "tooltipFadeOut 0.2s ease-in forwards"
+              : "tooltipFadeIn 0.2s ease-out forwards",
           }}
         >
           <Image
@@ -93,6 +114,29 @@ export const ImageTooltip = ({
             fill={true}
             className="w-full h-full object-cover shadow-lg rounded-lg"
           />
+          <style jsx global>{`
+            @keyframes tooltipFadeIn {
+              from {
+                opacity: 0;
+                transform: scale(0.95) translateY(5px);
+              }
+              to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+              }
+            }
+
+            @keyframes tooltipFadeOut {
+              from {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+              }
+              to {
+                opacity: 0;
+                transform: scale(0.95) translateY(5px);
+              }
+            }
+          `}</style>
         </span>
       )}
     </>
