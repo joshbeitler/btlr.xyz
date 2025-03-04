@@ -121,7 +121,7 @@ const Home = () => {
           {/* The entire polaroid that will flip */}
           <div
             id="polaroid-container"
-            className="text-center border-5 bg-white dark:bg-neutral-950 p-5 border-solid border-white dark:border-neutral-950 group-hover:scale-[101%] rotate-2 shadow-md transition-all duration-500 ease-in-out group-hover:rotate-[3deg] group-hover:shadow-xl cursor-pointer"
+            className="text-center border-5 bg-white dark:bg-neutral-900 p-5 border-solid border-white dark:border-neutral-950 group-hover:scale-[101%] rotate-2 shadow-md transition-all duration-500 ease-in-out group-hover:rotate-[3deg] group-hover:shadow-xl cursor-pointer"
             style={{
               transformStyle: "preserve-3d",
               position: "relative",
@@ -139,7 +139,7 @@ const Home = () => {
                 className="shadow-inner m-0 mb-3"
                 style={{ width: "auto", height: "auto", objectFit: "contain" }}
               />
-              <div className="polaroid z-50 absolute left-0 top-0 w-full h-full opacity-30 group-hover:opacity-10 transition-all ease-in-out duration-300"></div>
+              <div className="polaroid z-50 absolute left-0 top-0 w-full h-full opacity-10 group-hover:opacity-0 transition-all ease-in-out duration-300"></div>
               <QuoteOfTheDay />
             </div>
 
