@@ -6,7 +6,12 @@ export default {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        // Add default font
+        sans: ["var(--font-maison-neue)"],
+      },
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 };

@@ -1,12 +1,24 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Space_Grotesk } from "next/font/google";
+// import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/nav";
+import localFont from "next/font/local";
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: "400",
+const MaisonNeue = localFont({
+  src: [
+    {
+      path: "../fonts/MaisonNeueBook.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/MaisonNeueDemi.woff2",
+      weight: "500",
+      style: "semibold",
+    },
+  ],
+  variable: "--font-maison-neue",
   display: "swap",
 });
 
@@ -19,7 +31,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.className} bg-slate-50`}>
+    <html lang="en" className={`${MaisonNeue.className} bg-slate-50`}>
       <body className="antialiased">
         <div className="bg-slate-50 text-slate-800 w-full">
           <div className="mx-auto py-4 w-full max-w-[600px]">
