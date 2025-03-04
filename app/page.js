@@ -132,7 +132,7 @@ const Home = () => {
             {/* Front of polaroid */}
             <div style={{ backfaceVisibility: "hidden" }}>
               <Image
-                src="/me.jpeg"
+                src={coolMode ? "/me-cool.jpeg" : "/me.jpeg"}
                 alt="Joshua Beitler"
                 width={300}
                 height={300}
