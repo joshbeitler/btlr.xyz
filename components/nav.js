@@ -6,6 +6,8 @@ export const Nav = () => (
     <span>/</span>
     <Link href="/now">Now</Link>
     <span>/</span>
+    <Link href="/work">Work</Link>
+    <span>/</span>
     <a
       href="https://twitter.com/joshbeitler"
       target="_blank"
