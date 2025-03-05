@@ -67,9 +67,8 @@ const Home = () => {
           <a href="https://zonos.com" target="_blank">
             Zonos
           </a>
-          , the world leader in cross-border ecommerce APIs and shopper
-          experiences, building products and experiences that power millions of
-          shipments globally per month.
+          , the world leader in cross-border ecommerce experiences, building
+          products that power millions of shipments globally per month.
         </p>
         <p className="text-neutral-500 text-xl dark:text-neutral-400">
           I also run{" "}
@@ -79,8 +78,7 @@ const Home = () => {
           >
             CodeCamp
           </a>
-          , the largest CS outreach organization in Southern Utah, where we
-          organize a 24 hour hackathon every year, now in its 16th year.
+          , the largest CS outreach organization in Southern Utah.
         </p>
         <p className="text-neutral-500 text-xl dark:text-neutral-400">
           For fun, I love taking{" "}
@@ -159,7 +157,7 @@ const Home = () => {
         </div>
 
         <Image
-          className="stamp grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 absolute z-10 bottom-[65px] right-[40px] rotate-6 group-hover:scale-105 transition-all ease-in-out duration-300 hidden md:block"
+          className="stamp grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 absolute z-10 bottom-[10px] right-[40px] rotate-6 group-hover:scale-105 transition-all ease-in-out duration-300 hidden md:block"
           src="/passport-rect.svg"
           width={150}
           height={150}
