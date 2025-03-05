@@ -31,7 +31,7 @@ p {
     }
 
     .prose h1 {
-        @apply text-neutral-900 dark:text-white !text-2xl uppercase;
+        @apply text-neutral-900 dark:text-white !text-3xl uppercase;
     }
 
     .prose h2 {

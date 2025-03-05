@@ -159,7 +159,7 @@ const Home = () => {
         </div>
 
         <Image
-          className="stamp grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 absolute z-10 bottom-[55px] right-[40px] rotate-6 group-hover:scale-105 transition-all ease-in-out duration-300 hidden md:block"
+          className="stamp grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 absolute z-10 bottom-[65px] right-[40px] rotate-6 group-hover:scale-105 transition-all ease-in-out duration-300 hidden md:block"
           src="/passport-rect.svg"
           width={150}
           height={150}
