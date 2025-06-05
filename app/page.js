@@ -63,12 +63,16 @@ const Home = () => {
           Product Management at ambitious startups.
         </p>
         <p className="text-neutral-500 text-xl dark:text-neutral-400">
-          For the past 9 years, I worked at{" "}
+          I currently work at{" "}
+          <a href="https://getdx.com" target="_blank">
+            DX
+          </a>
+          , helping to build the developer intelligence platform used by high
+          performing teams. Before that, I worked at{" "}
           <a href="https://zonos.com" target="_blank">
             Zonos
           </a>
-          , the world leader in cross-border ecommerce experiences, building
-          products that power millions of shipments globally per month.
+          .
         </p>
         <p className="text-neutral-500 text-xl dark:text-neutral-400">
           I also run{" "}
