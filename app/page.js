@@ -102,12 +102,6 @@ const Home = () => {
           </a>{" "}
           collection.
         </p>
-        <p className="text-neutral-500 text-xl dark:text-neutral-400">
-          I&apos;m now looking for my next opportunity to build something
-          amazing with a team of talented individuals. Please{" "}
-          <a href="mailto:hello+site@btlr.xyz">reach out</a> if that sounds
-          interesting.
-        </p>
       </div>
       <div className="flex flex-1 relative group mt-0 md:mt-10 mx-auto md:mx-0">
         <Image
