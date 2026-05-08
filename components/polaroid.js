@@ -13,15 +13,15 @@ const PHOTOS = [
 ];
 
 // 0 = back-left .. last = front-right (top of stack).
-// Fan layout: outer cards rotate hard, middle is straight; y values
-// compensate so all cards' lowest corners land on the same horizontal line
-// (rotated corner sits lower than flat bottom by ~w/2*sin(r) − h/2*(1−cos(r))).
+// Rainbow arc (inverted parabola): middle card sits highest, outer cards
+// lower. Outer cards share the same y so their rotated bottom corners
+// (mirrored ±13°) land on the same horizontal line.
 const STACK_SLOTS = [
-  { x: -220, y: 0, r: -13 },
-  { x: -110, y: 15, r: -6 },
-  { x: 0, y: 30, r: 0 },
-  { x: 110, y: 15, r: 6 },
-  { x: 220, y: 0, r: 13 },
+  { x: -220, y: 50, r: -13 },
+  { x: -110, y: 25, r: -6 },
+  { x: 0, y: 5, r: 0 },
+  { x: 110, y: 25, r: 6 },
+  { x: 220, y: 50, r: 13 },
 ];
 
 export function Polaroid() {

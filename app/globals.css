@@ -124,7 +124,7 @@
   position: relative;
   width: 100%;
   max-width: 780px;
-  min-height: 520px;
+  min-height: 540px;
   margin-inline: auto;
   perspective: 1600px;
   perspective-origin: 50% 30%;
@@ -176,6 +176,27 @@
     inset 0 0 0 1px rgba(0, 0, 0, 0.04),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
   will-change: transform;
+}
+
+/* Paper grain on the white polaroid frame — subtle texture so it
+   doesn't read as flat printed white */
+.polaroid-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url('/polaroid-texture.jpg');
+  background-size: 220% 220%;
+  background-position: center;
+  mix-blend-mode: multiply;
+  opacity: 0.09;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.polaroid-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .polaroid-card:not(.is-front) .polaroid-iridescence,
@@ -335,11 +356,12 @@
   background:
     radial-gradient(
       circle at var(--mx) var(--my),
-      rgba(255, 255, 255, 0.55) 0%,
-      transparent 45%
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(255, 255, 255, 0.15) 28%,
+      transparent 55%
     );
   mix-blend-mode: soft-light;
-  opacity: calc(0.55 + 0.40 * var(--glare));
+  opacity: calc(0.7 + 0.45 * var(--glare));
   transition: opacity 0.35s ease;
 }
 
