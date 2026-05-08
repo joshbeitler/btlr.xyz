@@ -15,11 +15,12 @@ const PHOTOS = [
 // 0 = back-left .. last = front-right (top of stack).
 // Rainbow arc (inverted parabola): middle card sits highest, outer cards
 // lower. Outer cards share the same y so their rotated bottom corners
-// (mirrored ±13°) land on the same horizontal line.
+// (mirrored ±13°) land on the same horizontal line. Middle card has a
+// small tilt so the stack reads as hand-placed, not algorithmic.
 const STACK_SLOTS = [
   { x: -220, y: 50, r: -13 },
   { x: -110, y: 25, r: -6 },
-  { x: 0, y: 5, r: 0 },
+  { x: 2, y: 26, r: 3 },
   { x: 110, y: 25, r: 6 },
   { x: 220, y: 50, r: 13 },
 ];
