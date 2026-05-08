@@ -8,11 +8,11 @@ const Home = () => {
       </div>
 
       <div>
-        <p className="text-neutral-500 text-xl dark:text-neutral-400">
+        <p className="text-neutral-500 text-xl">
           Hi, I&apos;m Joshua Beitler, a builder of beautiful software
           specializing in Product Management at ambitious startups.
         </p>
-        <p className="text-neutral-500 text-xl dark:text-neutral-400">
+        <p className="text-neutral-500 text-xl">
           I currently work at{" "}
           <a href="https://getdx.com" target="_blank">
             DX
@@ -24,7 +24,7 @@ const Home = () => {
           </a>
           .
         </p>
-        <p className="text-neutral-500 text-xl dark:text-neutral-400">
+        <p className="text-neutral-500 text-xl">
           I also run{" "}
           <a
             href="https://www.stgeorgeutah.com/news/nearly-300-competitors-code-through-the-night-at-annual-st-george-event/article_35cd4894-a88b-11ef-863a-63fcf33d1a4a.html"
@@ -34,7 +34,7 @@ const Home = () => {
           </a>
           , the largest CS outreach organization in Southern Utah.
         </p>
-        <p className="text-neutral-500 text-xl dark:text-neutral-400">
+        <p className="text-neutral-500 text-xl">
           For fun, I love taking{" "}
           <a href="https://instagram.com/joshbeitler" target="_blank">
             photos
