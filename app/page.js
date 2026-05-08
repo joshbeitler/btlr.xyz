@@ -3,22 +3,16 @@ import { Polaroid } from "@/components/polaroid";
 const Home = () => {
   return (
     <div className="flex flex-col">
-      <header className="text-center mb-10 md:mb-14">
-        <p className="text-neutral-500 dark:text-neutral-400 text-lg md:text-xl m-0">
-          hi I&apos;m
-        </p>
-        <h1 className="!text-4xl md:!text-5xl !mt-1">Joshua Beitler</h1>
-      </header>
-
       <div className="mb-12 md:mb-16 md:-mx-[90px]">
         <Polaroid />
       </div>
 
       <div>
-        <p className="text-neutral-500 text-xl dark:text-neutral-400">
-          A builder of beautiful software specializing in Product Management at
+        <div className="text-neutral-500 text-xl dark:text-neutral-400 my-[10px]">
+          Hi, I&apos;m <h1 className="intro-name">Joshua Beitler</h1>, a
+          builder of beautiful software specializing in Product Management at
           ambitious startups.
-        </p>
+        </div>
         <p className="text-neutral-500 text-xl dark:text-neutral-400">
           I currently work at{" "}
           <a href="https://getdx.com" target="_blank">
