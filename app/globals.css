@@ -120,8 +120,9 @@
 }
 
 /* Inline h1 inside the intro paragraph — overrides .prose h1 styling
-   so the name flows as body text but stays an h1 for SEO. */
-.prose h1.intro-name {
+   so the name flows as body text but stays an h1 for SEO.
+   Doubled .intro-name.intro-name boosts specificity to beat .prose h1. */
+h1.intro-name.intro-name {
   display: inline !important;
   font-size: 1.25rem !important;
   line-height: 1.75rem !important;
@@ -309,9 +310,9 @@
       rgba(255, 180, 220, 0.0) 360deg
     );
   mix-blend-mode: overlay;
-  opacity: calc(0.18 + 0.22 * var(--glare));
+  opacity: calc(0.05 + 0.4 * var(--glare));
   filter: blur(14px);
-  transition: opacity 0.35s ease;
+  transition: opacity 0.4s ease;
 }
 
 /* anisotropic gloss streak */
@@ -322,19 +323,19 @@
   background:
     radial-gradient(
       ellipse 55% 80% at var(--mx) var(--my),
-      rgba(255, 255, 255, 0.28) 0%,
-      rgba(255, 255, 255, 0.08) 18%,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.1) 18%,
       transparent 40%
     ),
     linear-gradient(
       calc(105deg + var(--ry) * 2),
       transparent 44%,
-      rgba(255, 255, 255, 0.10) 50%,
+      rgba(255, 255, 255, 0.12) 50%,
       transparent 56%
     );
   mix-blend-mode: screen;
-  opacity: calc(0.30 + 0.30 * var(--glare));
-  transition: opacity 0.35s ease;
+  opacity: calc(0.05 + 0.6 * var(--glare));
+  transition: opacity 0.4s ease;
 }
 
 .polaroid-vignette {
@@ -370,13 +371,13 @@
   background:
     radial-gradient(
       circle at var(--mx) var(--my),
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(255, 255, 255, 0.3) 30%,
+      rgba(255, 255, 255, 0.85) 0%,
+      rgba(255, 255, 255, 0.25) 30%,
       transparent 60%
     );
   mix-blend-mode: overlay;
-  opacity: calc(0.85 + 0.5 * var(--glare));
-  transition: opacity 0.35s ease;
+  opacity: calc(0.22 + 0.78 * var(--glare));
+  transition: opacity 0.4s ease;
 }
 
 /* faint inner edge shadow on the paper, accents the depth */
