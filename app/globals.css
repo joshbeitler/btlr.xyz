@@ -13,13 +13,39 @@
 *
 */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-p {
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: var(--font-maison-neue);
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@layer utilities {
+  p {
     margin-bottom: 10px !important;
     margin-top: 10px !important;
+  }
 }
 
 @layer base {
@@ -31,14 +57,14 @@ p {
     }
 
     .prose h1 {
-        @apply text-neutral-900 dark:text-white !text-3xl uppercase;
+        @apply text-neutral-900 dark:text-white text-3xl! uppercase;
     }
 
     .prose h2 {
-        @apply text-neutral-500 uppercase !text-lg dark:text-white;
+        @apply text-neutral-500 uppercase text-lg! dark:text-white;
     }
     .prose h3 {
-        @apply text-neutral-500 uppercase !text-sm dark:text-white;
+        @apply text-neutral-500 uppercase text-sm! dark:text-white;
     }
 
     ::selection {
@@ -73,43 +99,310 @@ p {
     }
 
     h1 {
-        @apply uppercase !text-2xl;
+        @apply uppercase text-2xl!;
     }
 
     h2 {
-        @apply text-neutral-500 uppercase !text-lg;
+        @apply text-neutral-500 uppercase text-lg!;
     }
 
     h3 {
-        @apply text-neutral-400 uppercase !text-sm;
+        @apply text-neutral-400 uppercase text-sm!;
     }
 }
 
-.stamp {
-    -webkit-mask-image: url("/grunge-texture.png");
+@layer utilities {
+  .stamp {
+    -webkit-mask-image: url('/grunge-texture.png');
     -webkit-mask-size: 944px 604px;
     mix-blend-mode: multiply;
+  }
 }
 
-.polaroid {
-    background-image: url("/polaroid-texture.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: rgba(255, 255, 255, 0.5);
-    background-blend-mode: overlay;
+/* ---------- Hyper-realistic polaroid stack ---------- */
+.polaroid-stack {
+  position: relative;
+  width: 100%;
+  max-width: 780px;
+  min-height: 520px;
+  margin-inline: auto;
+  perspective: 1600px;
+  perspective-origin: 50% 30%;
 }
 
-.polaroid-semi {
-    background-color: rgba(255, 255, 255, 0.9);
-    background-blend-mode: overlay;
+.polaroid-card {
+  --mx: 50%;
+  --my: 30%;
+  --rx: 0deg;
+  --ry: 0deg;
+  --lift: 0;
+  --glare: 0;
+  --slot-x: 0px;
+  --slot-y: 0px;
+  --slot-r: 0deg;
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 320px;
+  margin-left: -160px;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50%;
+  /* slot position uses individual transform properties so they can transition
+     independently while `transform` handles mouse tilt + the shuffle lift */
+  translate: var(--slot-x) var(--slot-y);
+  rotate: var(--slot-r);
+  transform:
+    rotateX(var(--rx))
+    rotateY(var(--ry))
+    translateZ(calc(20px * var(--lift)));
+  transition:
+    translate 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    rotate 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.34, 1.4, 0.64, 1),
+    box-shadow 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  padding: 14px 14px 60px;
+  border-radius: 3px;
+  background:
+    linear-gradient(180deg, #fbfbf6 0%, #f3f3ec 70%, #ececdf 100%);
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.06),
+    0 calc(8px + 18px * var(--lift)) calc(20px + 26px * var(--lift)) rgba(0, 0, 0, calc(0.10 + 0.08 * var(--lift))),
+    0 calc(28px + 32px * var(--lift)) calc(48px + 40px * var(--lift)) rgba(0, 0, 0, calc(0.07 + 0.06 * var(--lift))),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  will-change: transform;
 }
 
-.dark .polaroid {
-    background-color: rgba(0, 0, 0, 0.8);
-    background-blend-mode: overlay;
+.polaroid-card:not(.is-front) .polaroid-iridescence,
+.polaroid-card:not(.is-front) .polaroid-specular,
+.polaroid-card:not(.is-front) .polaroid-paper-sheen {
+  opacity: 0.35;
+  transition: opacity 0.35s ease;
 }
 
-/* Add this to your existing CSS */
+/* Non-top cards: subtle hover lift + sheen */
+.polaroid-card:not(.is-front):not(.is-popping):hover {
+  transform: translateY(-7px) translateZ(16px) scale(1.015);
+}
+
+.polaroid-card:not(.is-front):hover .polaroid-paper-sheen {
+  opacity: 0.7;
+}
+.polaroid-card:not(.is-front):hover .polaroid-iridescence {
+  opacity: 0.5;
+}
+.polaroid-card:not(.is-front):hover .polaroid-specular {
+  opacity: 0.55;
+}
+
+@keyframes polaroid-shuffle-lift {
+  0% {
+    transform: translateY(0) translateZ(0) scale(1);
+  }
+  50% {
+    transform: translateY(-32px) translateZ(48px) scale(1.06);
+  }
+  100% {
+    transform: translateY(0) translateZ(0) scale(1);
+  }
+}
+
+.polaroid-card.is-popping {
+  animation: polaroid-shuffle-lift 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .polaroid-card.is-popping {
+    animation: none;
+  }
+}
+
+/* Photo well */
+.polaroid-photo {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #111;
+  isolation: isolate;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.18),
+    inset 0 2px 6px rgba(0, 0, 0, 0.35),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.05);
+}
+
+.polaroid-img {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center 18%;
+  margin: 0 !important;
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* warm emulsion tint over the photo */
+.polaroid-emulsion-tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255, 200, 140, 0.06) 0%, transparent 25%),
+    linear-gradient(0deg, rgba(40, 20, 60, 0.10) 0%, transparent 30%);
+  mix-blend-mode: multiply;
+}
+
+/* iridescent emulsion shimmer that shifts with tilt */
+.polaroid-iridescence {
+  position: absolute;
+  inset: -10%;
+  pointer-events: none;
+  background:
+    conic-gradient(
+      from calc(var(--ry) * 12deg) at var(--mx) var(--my),
+      rgba(255, 180, 220, 0.0) 0deg,
+      rgba(255, 180, 220, 0.18) 40deg,
+      rgba(180, 220, 255, 0.18) 110deg,
+      rgba(255, 240, 180, 0.18) 180deg,
+      rgba(180, 255, 220, 0.18) 250deg,
+      rgba(255, 180, 220, 0.0) 360deg
+    );
+  mix-blend-mode: overlay;
+  opacity: calc(0.18 + 0.22 * var(--glare));
+  filter: blur(14px);
+  transition: opacity 0.35s ease;
+}
+
+/* anisotropic gloss streak */
+.polaroid-specular {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 55% 80% at var(--mx) var(--my),
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0.08) 18%,
+      transparent 40%
+    ),
+    linear-gradient(
+      calc(105deg + var(--ry) * 2),
+      transparent 44%,
+      rgba(255, 255, 255, 0.10) 50%,
+      transparent 56%
+    );
+  mix-blend-mode: screen;
+  opacity: calc(0.30 + 0.30 * var(--glare));
+  transition: opacity 0.35s ease;
+}
+
+.polaroid-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 55%,
+    rgba(0, 0, 0, 0.30) 100%
+  );
+  mix-blend-mode: multiply;
+}
+
+/* very subtle photo grain */
+.polaroid-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url('/polaroid-texture.jpg');
+  background-size: 200% 200%;
+  background-position: center;
+  mix-blend-mode: overlay;
+  opacity: 0.18;
+}
+
+/* paper sheen on white frame, tracks mouse */
+.polaroid-paper-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      circle at var(--mx) var(--my),
+      rgba(255, 255, 255, 0.55) 0%,
+      transparent 45%
+    );
+  mix-blend-mode: soft-light;
+  opacity: calc(0.55 + 0.40 * var(--glare));
+  transition: opacity 0.35s ease;
+}
+
+/* faint inner edge shadow on the paper, accents the depth */
+.polaroid-edge {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.04),
+    inset 0 calc(-1px - 1px * var(--lift)) calc(2px + 4px * var(--lift)) rgba(0, 0, 0, 0.05);
+}
+
+.polaroid-caption {
+  height: 56px;
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  line-height: 1.25;
+}
+
+/* Dark mode polaroid (still off-white frame, but warm shadows) */
+.dark .polaroid-card {
+  background: linear-gradient(180deg, #f4f0e6 0%, #e7dfd0 100%);
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.5),
+    0 calc(8px + 18px * var(--lift)) calc(22px + 26px * var(--lift)) rgba(0, 0, 0, calc(0.55 + 0.10 * var(--lift))),
+    0 calc(28px + 32px * var(--lift)) calc(50px + 40px * var(--lift)) rgba(0, 0, 0, calc(0.40 + 0.08 * var(--lift))),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 640px) {
+  .polaroid-stack {
+    min-height: 460px;
+    max-width: 420px;
+  }
+  .polaroid-card {
+    width: 260px;
+    margin-left: -130px;
+    translate: calc(var(--slot-x) * 0.75) calc(var(--slot-y) * 0.85);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .polaroid-card,
+  .polaroid-card.is-popping,
+  .polaroid-card:not(.is-front):not(.is-popping):hover {
+    transition: none;
+    animation: none;
+  }
+  .polaroid-iridescence,
+  .polaroid-specular,
+  .polaroid-paper-sheen {
+    transition: none;
+  }
+}
 @layer utilities {
     @media (max-width: 640px) {
         /* Adjust list spacing for mobile */
@@ -119,11 +412,11 @@ p {
 
         /* Make headings smaller on mobile */
         h1 {
-            @apply !text-xl;
+            @apply text-xl!;
         }
 
         h2 {
-            @apply !text-base;
+            @apply text-base!;
         }
 
         /* Reduce font size for paragraphs on small screens */
@@ -134,22 +427,3 @@ p {
     }
 }
 
-.perspective {
-    perspective: 1000px;
-}
-
-.preserve-3d {
-    transform-style: preserve-3d;
-}
-
-.backface-hidden {
-    backface-visibility: hidden;
-}
-
-.rotate-y-180 {
-    transform: rotateY(180deg);
-}
-
-.card-flip .card-inner {
-    transform: rotateY(180deg);
-}

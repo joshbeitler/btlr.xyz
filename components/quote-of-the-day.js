@@ -47,11 +47,9 @@ export const QuoteOfTheDay = () => {
 
   return (
     <span
-      className={`transition-all ease-in-out duration-300 group-hover:text-neutral-500 text-lg text-neutral-400 stamp ${freehand.className}`}
+      className={`text-lg text-neutral-500 ${freehand.className}`}
     >
-      &ldquo;
-      {quote}
-      &rdquo; -JB
+      &ldquo;{quote}&rdquo; &mdash;JB
     </span>
   );
 };

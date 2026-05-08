@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`bg-neutral-50 dark:!bg-neutral-950 h-full ${MaisonNeue.className}`}
+      className={`bg-white dark:bg-neutral-950! h-full overflow-x-clip ${MaisonNeue.className}`}
     >
       <head>
         {/* /**
@@ -50,8 +50,8 @@ export default function RootLayout({ children }) {
          *
          */}
       </head>
-      <body className="antialiased min-h-full">
-        <div className="min-h-[100vh] bg-neutral-50 text-neutral-800 dark:bg-neutral-950 dark:text-white w-full transition-all ease-in-out duration-200">
+      <body className="antialiased min-h-full overflow-x-clip">
+        <div className="min-h-screen bg-white text-neutral-800 dark:bg-neutral-950 dark:text-white w-full transition-all ease-in-out duration-200">
           <div className="mx-auto h-full min-h-full py-4 w-full px-4 md:px-0 max-w-[95%] md:max-w-[600px]">
             <Nav />
             <div className="prose h-full max-w-full min-h-full">{children}</div>
