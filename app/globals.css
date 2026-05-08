@@ -56,7 +56,7 @@
         @apply text-neutral-900 dark:text-white;
     }
 
-    .prose h1:not(.intro-name) {
+    .prose h1 {
         @apply text-neutral-900 dark:text-white text-3xl uppercase;
     }
 
@@ -119,20 +119,6 @@
   }
 }
 
-/* Inline h1 inside the intro paragraph — overrides .prose h1 styling
-   so the name flows as body text but stays an h1 for SEO.
-   Doubled .intro-name.intro-name boosts specificity to beat .prose h1. */
-h1.intro-name.intro-name {
-  display: inline !important;
-  font-size: 1.25rem !important;
-  line-height: 1.75rem !important;
-  text-transform: none !important;
-  font-weight: 400 !important;
-  letter-spacing: normal !important;
-  color: inherit !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
 
 /* ---------- Hyper-realistic polaroid stack ---------- */
 .polaroid-stack {
@@ -170,7 +156,9 @@ h1.intro-name.intro-name {
   transform:
     rotateX(var(--rx))
     rotateY(var(--ry))
-    translateZ(calc(20px * var(--lift)));
+    translateZ(calc(20px * var(--lift)))
+    translateY(0px)
+    scale(1);
   transition:
     translate 0.65s cubic-bezier(0.22, 1, 0.36, 1),
     rotate 0.65s cubic-bezier(0.22, 1, 0.36, 1),
@@ -236,20 +224,32 @@ h1.intro-name.intro-name {
   opacity: 0.55;
 }
 
-@keyframes polaroid-shuffle-lift {
+/* Initial page-load entrance — soft staggered "lay down" */
+@keyframes polaroid-enter {
   0% {
-    transform: translateY(0) translateZ(0) scale(1);
-  }
-  50% {
-    transform: translateY(-32px) translateZ(48px) scale(1.06);
+    opacity: 0;
+    transform: rotateX(0deg) rotateY(0deg) translateZ(0px) translateY(50px) scale(0.96);
   }
   100% {
-    transform: translateY(0) translateZ(0) scale(1);
+    opacity: 1;
+    transform: rotateX(0deg) rotateY(0deg) translateZ(0px) translateY(0px) scale(1);
+  }
+}
+
+@keyframes polaroid-shuffle-lift {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(0px) translateY(0px) scale(1);
+  }
+  38% {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(44px) translateY(-30px) scale(1.05);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(0px) translateY(0px) scale(1);
   }
 }
 
 .polaroid-card.is-popping {
-  animation: polaroid-shuffle-lift 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: polaroid-shuffle-lift 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {

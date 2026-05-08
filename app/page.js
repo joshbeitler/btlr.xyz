@@ -8,11 +8,10 @@ const Home = () => {
       </div>
 
       <div>
-        <div className="text-neutral-500 text-xl dark:text-neutral-400 my-[10px]">
-          Hi, I&apos;m <h1 className="intro-name">Joshua Beitler</h1>, a
-          builder of beautiful software specializing in Product Management at
-          ambitious startups.
-        </div>
+        <p className="text-neutral-500 text-xl dark:text-neutral-400">
+          Hi, I&apos;m Joshua Beitler, a builder of beautiful software
+          specializing in Product Management at ambitious startups.
+        </p>
         <p className="text-neutral-500 text-xl dark:text-neutral-400">
           I currently work at{" "}
           <a href="https://getdx.com" target="_blank">

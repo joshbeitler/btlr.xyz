@@ -20,7 +20,7 @@ const PHOTOS = [
 const STACK_SLOTS = [
   { x: -220, y: 50, r: -13 },
   { x: -110, y: 25, r: -6 },
-  { x: 2, y: 26, r: 3 },
+  { x: 2, y: 15, r: -2 },
   { x: 110, y: 25, r: 6 },
   { x: 220, y: 50, r: 13 },
 ];
@@ -45,7 +45,7 @@ export function Polaroid() {
       );
       setPoppedIdx(clickedIdx);
       if (popTimerRef.current) clearTimeout(popTimerRef.current);
-      popTimerRef.current = setTimeout(() => setPoppedIdx(null), 680);
+      popTimerRef.current = setTimeout(() => setPoppedIdx(null), 720);
     },
     [stackPos],
   );
@@ -72,6 +72,7 @@ export function Polaroid() {
             zIndex={pos}
             isFront={pos === topPos}
             isPopping={poppedIdx === i}
+            enterDelay={i * 80}
             onSelect={() => handleSelect(i)}
           />
         );
@@ -80,9 +81,27 @@ export function Polaroid() {
   );
 }
 
-function PolaroidCard({ photo, slot, zIndex, isFront, isPopping, onSelect }) {
+function PolaroidCard({
+  photo,
+  slot,
+  zIndex,
+  isFront,
+  isPopping,
+  enterDelay,
+  onSelect,
+}) {
   const cardRef = useRef(null);
   const rafRef = useRef(0);
+  const [isEntering, setIsEntering] = useState(true);
+
+  // Strip the entrance animation after it finishes so it can't restart when
+  // the .is-popping class is later removed (which would re-trigger the
+  // animation property on .polaroid-card and replay the entrance).
+  useEffect(() => {
+    const totalMs = 650 + enterDelay + 100;
+    const t = setTimeout(() => setIsEntering(false), totalMs);
+    return () => clearTimeout(t);
+  }, [enterDelay]);
 
   const handleMove = useCallback(
     (e) => {
@@ -131,6 +150,7 @@ function PolaroidCard({ photo, slot, zIndex, isFront, isPopping, onSelect }) {
         "polaroid-card",
         isFront ? "is-front" : "",
         isPopping ? "is-popping" : "",
+        isEntering ? "is-entering" : "",
       ]
         .filter(Boolean)
         .join(" ")}
@@ -138,6 +158,7 @@ function PolaroidCard({ photo, slot, zIndex, isFront, isPopping, onSelect }) {
         "--slot-x": `${slot.x}px`,
         "--slot-y": `${slot.y}px`,
         "--slot-r": `${slot.r}deg`,
+        "--enter-delay": `${enterDelay}ms`,
         zIndex,
       }}
       onMouseMove={handleMove}
