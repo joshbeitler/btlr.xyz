@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const Nav = () => (
-  <nav className="no-underline flex justify-center flex-1 items-center flex-wrap gap-y-2 space-x-2 text-gray-500 text-sm mb-8 md:mb-16">
+  <nav className="no-underline flex justify-center flex-1 items-center flex-wrap gap-y-2 space-x-2 text-gray-500 text-sm mb-6 md:mb-10">
     <Link href="/">@beitler</Link>
     <span>/</span>
     <Link href="/now">Now</Link>
