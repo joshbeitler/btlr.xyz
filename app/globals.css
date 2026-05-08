@@ -248,6 +248,11 @@
   }
 }
 
+.polaroid-card.is-entering {
+  animation: polaroid-enter 0.65s cubic-bezier(0.22, 1, 0.36, 1)
+    var(--enter-delay, 0ms) backwards;
+}
+
 .polaroid-card.is-popping {
   animation: polaroid-shuffle-lift 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }

@@ -25,10 +25,21 @@ const STACK_SLOTS = [
   { x: 220, y: 50, r: 13 },
 ];
 
+const ENTER_DURATION = 650;
+const ENTER_STAGGER = 80;
+
 export function Polaroid() {
   const [stackPos, setStackPos] = useState(() => PHOTOS.map((_, i) => i));
   const [poppedIdx, setPoppedIdx] = useState(null);
+  const [entering, setEntering] = useState(true);
   const popTimerRef = useRef(null);
+
+  useEffect(() => {
+    const totalEnter =
+      (PHOTOS.length - 1) * ENTER_STAGGER + ENTER_DURATION + 60;
+    const timer = setTimeout(() => setEntering(false), totalEnter);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSelect = useCallback(
     (clickedIdx) => {
@@ -72,7 +83,8 @@ export function Polaroid() {
             zIndex={pos}
             isFront={pos === topPos}
             isPopping={poppedIdx === i}
-            enterDelay={i * 80}
+            isEntering={entering}
+            enterDelay={i * ENTER_STAGGER}
             onSelect={() => handleSelect(i)}
           />
         );
@@ -87,21 +99,12 @@ function PolaroidCard({
   zIndex,
   isFront,
   isPopping,
+  isEntering,
   enterDelay,
   onSelect,
 }) {
   const cardRef = useRef(null);
   const rafRef = useRef(0);
-  const [isEntering, setIsEntering] = useState(true);
-
-  // Strip the entrance animation after it finishes so it can't restart when
-  // the .is-popping class is later removed (which would re-trigger the
-  // animation property on .polaroid-card and replay the entrance).
-  useEffect(() => {
-    const totalMs = 650 + enterDelay + 100;
-    const t = setTimeout(() => setIsEntering(false), totalMs);
-    return () => clearTimeout(t);
-  }, [enterDelay]);
 
   const handleMove = useCallback(
     (e) => {
