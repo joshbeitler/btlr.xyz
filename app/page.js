@@ -3,36 +3,24 @@ import { Polaroid } from "@/components/polaroid";
 const Home = () => {
   return (
     <div className="flex flex-col">
-      <div className="mb-12 md:mb-16 md:-mx-[90px]">
-        <Polaroid />
-      </div>
+      <header className="mb-2">
+        <div className="text-2xl md:text-3xl text-neutral-900 font-bold leading-snug">
+          Hi, I&apos;m Joshua Beitler
+        </div>
+      </header>
 
-      <div>
+      <div className="mb-6 md:mb-8">
         <p className="text-neutral-500 text-xl">
-          Hi, I&apos;m Joshua Beitler, a builder of beautiful software
-          specializing in Product Management at ambitious startups.
-        </p>
-        <p className="text-neutral-500 text-xl">
-          I currently work at{" "}
+          Currently I lead Product at{" "}
           <a href="https://getdx.com" target="_blank">
             DX
           </a>
-          , helping to build the developer intelligence platform used by high
-          performing teams. Before that, I worked at{" "}
+          , helping build the developer intelligence platform used by
+          high-performing teams. Before that, I was at{" "}
           <a href="https://zonos.com" target="_blank">
             Zonos
           </a>
           .
-        </p>
-        <p className="text-neutral-500 text-xl">
-          I also run{" "}
-          <a
-            href="https://www.stgeorgeutah.com/news/nearly-300-competitors-code-through-the-night-at-annual-st-george-event/article_35cd4894-a88b-11ef-863a-63fcf33d1a4a.html"
-            target="_blank"
-          >
-            CodeCamp
-          </a>
-          , the largest CS outreach organization in Southern Utah.
         </p>
         <p className="text-neutral-500 text-xl">
           For fun, I love taking{" "}
@@ -52,6 +40,10 @@ const Home = () => {
           </a>{" "}
           collection.
         </p>
+      </div>
+
+      <div className="md:-mx-[90px] mb-8 md:mb-0 -mt-[20px]">
+        <Polaroid />
       </div>
     </div>
   );
