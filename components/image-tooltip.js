@@ -97,7 +97,7 @@ export const ImageTooltip = ({
       </a>
       {isVisible && (
         <span
-          className="cursor-help fixed z-50 pointer-events-none origin-top-left"
+          className="image-tooltip cursor-help fixed z-50 pointer-events-none origin-top-left"
           style={{
             left: `${tooltipPosition.left}px`,
             top: `${tooltipPosition.top}px`,
@@ -114,29 +114,6 @@ export const ImageTooltip = ({
             fill={true}
             className="w-full h-full object-cover shadow-lg rounded-lg"
           />
-          <style jsx global>{`
-            @keyframes tooltipFadeIn {
-              from {
-                opacity: 0;
-                transform: scale(0.95) translateY(5px);
-              }
-              to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-              }
-            }
-
-            @keyframes tooltipFadeOut {
-              from {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-              }
-              to {
-                opacity: 0;
-                transform: scale(0.95) translateY(5px);
-              }
-            }
-          `}</style>
         </span>
       )}
     </>

@@ -26,7 +26,8 @@ const STACK_SLOTS = [
 ];
 
 const ENTER_DURATION = 650;
-const ENTER_STAGGER = 80;
+const ENTER_STAGGER = 45;
+const POP_DURATION = 400;
 
 export function Polaroid() {
   const [stackPos, setStackPos] = useState(() => PHOTOS.map((_, i) => i));
@@ -56,7 +57,7 @@ export function Polaroid() {
       );
       setPoppedIdx(clickedIdx);
       if (popTimerRef.current) clearTimeout(popTimerRef.current);
-      popTimerRef.current = setTimeout(() => setPoppedIdx(null), 720);
+      popTimerRef.current = setTimeout(() => setPoppedIdx(null), POP_DURATION + 20);
     },
     [stackPos],
   );

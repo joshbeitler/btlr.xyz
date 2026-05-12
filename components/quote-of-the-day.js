@@ -48,6 +48,7 @@ export const QuoteOfTheDay = () => {
   return (
     <span
       className={`text-lg text-neutral-500 ${freehand.className}`}
+      style={{ fontVariantLigatures: "contextual", fontFeatureSettings: '"calt", "dlig"' }}
     >
       &ldquo;{quote}&rdquo; &mdash;JB
     </span>

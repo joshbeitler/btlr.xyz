@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div className="flex flex-col">
       <header className="mb-2">
-        <div className="text-2xl md:text-3xl text-neutral-900 font-bold leading-snug">
+        <div className="text-2xl md:text-3xl text-neutral-900 font-bold leading-snug text-balance">
           Hi, I&apos;m Joshua Beitler
         </div>
       </header>
