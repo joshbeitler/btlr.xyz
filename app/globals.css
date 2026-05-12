@@ -44,6 +44,12 @@
     margin-bottom: 10px !important;
     margin-top: 10px !important;
   }
+
+  a:hover,
+  .prose a:hover {
+    color: var(--color-blue-500);
+    background-size: 100% 100%;
+  }
 }
 
 @layer base {
@@ -71,29 +77,19 @@
 
     /* Reset all default link styling first */
     a {
-        @apply relative text-neutral-700 font-medium px-0 py-0.5 border-b-2 border-dotted border-neutral-300;
+        @apply text-neutral-700 font-medium px-0 py-0.5 border-b-2 border-dotted border-neutral-300;
         text-decoration: none !important; /* Force remove default underlines */
-        transition: color 0.2s ease-in-out;
-        z-index: 1;
+        background-image: linear-gradient(var(--color-neutral-200), var(--color-neutral-200));
+        background-repeat: no-repeat;
+        background-position: 0 100%;
+        background-size: 100% 0%;
+        transition: color 0.2s ease-in-out, background-size 0.3s ease;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
     }
 
     .no-underline a {
         @apply border-0;
-    }
-
-    a::after {
-        content: "";
-        @apply absolute bottom-0 left-0 w-full h-0 bg-neutral-200;
-        transition: height 0.3s ease;
-        z-index: -1;
-    }
-
-    a:hover {
-        @apply text-blue-500;
-    }
-
-    a:hover::after {
-        @apply h-full;
     }
 
     h1 {
